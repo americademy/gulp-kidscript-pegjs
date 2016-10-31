@@ -1,6 +1,6 @@
 {
   "name": "gulp-kidscript-pegjs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A gulp-plugin to generate parsers based on PEGJS grammars.",
   "main": "index.js",
   "author": "Craig Ulliott <craig@codeverse.com>",
