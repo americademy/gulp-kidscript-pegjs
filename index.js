@@ -65,8 +65,8 @@ module.exports = function (fileName) {
     var combinedSource = '\n' + grammarSource.join('\n');
 
     // get a list of all the rules from the combinedSource
-    let allRuleNames = combinedSource.match(/\n([A-Za-z0-9_-])+[\r\n ]*\=/g).map((match) => {
-      return match.replace(/[\r\n =]/g, '');
+    let allRuleNames = combinedSource.match(/\n([A-Za-z0-9_-])+([\r\n ]+|(\/\/[^\r\n=]+))*\=/g).map((match) => {
+      return match.replace(/[\r\n =]|(\/\/[^\r\n=]+)/g, '');
     });
 
     // add the javascript header to the front of the file;
