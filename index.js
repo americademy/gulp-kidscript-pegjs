@@ -51,7 +51,7 @@ module.exports = function (fileName) {
     // keep track of the latest file
     latestFile = file;
 
-    cb(null, file);
+    cb();
 
   };
 
@@ -86,8 +86,6 @@ module.exports = function (fileName) {
     var fileContents = new Buffer(compiledParserSource);
     combinedFile.contents = fileContents;
 
-    // remove other files
-    this.length = 0;
     // add this new file
     this.push(combinedFile);
     cb();
