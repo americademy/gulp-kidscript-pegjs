@@ -2,6 +2,7 @@
 
 var gutil     = require('gulp-util');
 var through   = require('through2');
+var path = require('path');
 var PluginError = gutil.PluginError;
 var File = gutil.File;
 
