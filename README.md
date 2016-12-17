@@ -18,7 +18,7 @@ function buildParser() {
    */
   let options = {
     print: false,
-    trace: true
+    tracer: true
   };
   return gulp.src(['grammar/header.js', 'grammar/index.peg', 'grammar/**/*.peg'])
     .pipe(pegjs('peg_parser.js', options))
