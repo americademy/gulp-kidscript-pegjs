@@ -11,7 +11,8 @@ var pegjs     = require('pegjs');
 // Consts
 const PLUGIN_NAME = 'gulp-codeverse-pegjs';
 
-module.exports = function (fileName, printGrammar) {
+module.exports = function (fileName, options) {
+  options = options || {};
   var grammarSource = [];
   var headerSource;
   var combinedFile;
@@ -72,7 +73,7 @@ module.exports = function (fileName, printGrammar) {
     // add the javascript header to the front of the file;
     combinedSource = headerSource + '\n' + combinedSource;
   
-    if (printGrammar) {
+    if (options.print) {
       console.log('\n\n Combined Grammar:\n' + combinedSource + '\n\n');
     }
     
@@ -80,7 +81,7 @@ module.exports = function (fileName, printGrammar) {
     let compiledParserSource = pegjs.generate(combinedSource, {
       allowedStartRules: allRuleNames,
       output: 'source',
-      trace: false
+      trace: !!options.trace
     });
 
     // finalize the source to make it importable and not linted
