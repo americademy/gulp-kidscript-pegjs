@@ -9,7 +9,7 @@ var File = gutil.File;
 var pegjs     = require('pegjs');
 
 // Consts
-const PLUGIN_NAME = 'gulp-codeverse-pegjs';
+const PLUGIN_NAME = 'gulp-kidscript-pegjs';
 
 module.exports = function (fileName, options) {
   options = options || {};
