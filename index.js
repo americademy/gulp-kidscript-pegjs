@@ -81,8 +81,7 @@ module.exports = function (fileName, options) {
     let compiledParserSource = pegjs.generate(combinedSource, {
       allowedStartRules: allRuleNames,
       output: 'source',
-      trace: !!options.trace,
-      tracer: (options.tracer || null)
+      trace: !!options.trace
     });
 
     // finalize the source to make it importable and not linted
