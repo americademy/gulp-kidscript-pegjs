@@ -21,7 +21,7 @@ function buildParser() {
   let tracer = null;
   let options = {
     print: false,
-    trace: true,
+    trace: false,
     tracer: tracer
   };
   return gulp.src(['grammar/header.js', 'grammar/index.peg', 'grammar/**/*.peg'])
