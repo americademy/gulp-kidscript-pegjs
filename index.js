@@ -9,9 +9,10 @@ var File = gutil.File;
 var pegjs     = require('pegjs');
 
 // Consts
-const PLUGIN_NAME = 'gulp-codeverse-pegjs';
+const PLUGIN_NAME = 'gulp-kidscript-pegjs';
 
-module.exports = function (fileName) {
+module.exports = function (fileName, options) {
+  options = options || {};
   var grammarSource = [];
   var headerSource;
   var combinedFile;
@@ -71,12 +72,16 @@ module.exports = function (fileName) {
 
     // add the javascript header to the front of the file;
     combinedSource = headerSource + '\n' + combinedSource;
-
+  
+    if (options.print) {
+      console.log('\n\n Combined Grammar:\n' + combinedSource + '\n\n');
+    }
+    
     // create the peg parser
     let compiledParserSource = pegjs.generate(combinedSource, {
       allowedStartRules: allRuleNames,
       output: 'source',
-      trace: false
+      trace: !!options.trace
     });
 
     // finalize the source to make it importable and not linted
