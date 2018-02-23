@@ -4,6 +4,8 @@
   "description": "A gulp-plugin to generate parsers based on PEGJS grammars.",
   "main": "index.js",
   "author": "Craig Ulliott <craig@codeverse.com>",
+  "private": true,
+  "license": "copyright Americademy, Inc. all rights reserved",
   "dependencies": {
     "gulp-util": "^3.0.6",
     "pegjs": "^0.10.0",
